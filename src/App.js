@@ -11,7 +11,7 @@ function App() {
 
   function displayList(movie) {
     return (
-      moviesList.length === 0 ? <li>Insert your movies</li> : <li key={movie.title}>{movie.title} ({movie.year}) </li>
+      <li key={movie.title}>{movie.title} ({movie.year}) </li>
     )
   }
 
@@ -23,7 +23,7 @@ function App() {
       <div>
           <h1>My favourite movies to watch {moviesList.length}</h1>
           <h2>Titles</h2>
-          <ul>{moviesList.map(displayList)}</ul>
+          {moviesList.length === 0 ? <h4>Insert your movies</h4> : <ul>{moviesList.map(displayList)}</ul>}
           <button type="button" onClick={openAddFilm}>{IsFormVisible ? "Hide Form" : "Add a movie"}</button> 
           {IsFormVisible && <MovieForm onMovieSubmit={(movie) => setMoviesList([...moviesList, movie])} buttonLabel="Add a movie"/>}
       </div>
