@@ -1,7 +1,7 @@
 import {useState} from "react";
 
 export default function MovieForm(props) {
-    const [title, setTitle] = useState("Type your title");
+    const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
     
     function TitleChange(event) {
@@ -34,11 +34,11 @@ export default function MovieForm(props) {
             <h2>Add Movie</h2>
             <div>
                 <label>Title</label>
-                <input type="text" value={title} onChange={TitleChange}/>
+                <input type="text" placeholder="Insert Movie Title" value={title} onChange={TitleChange}/>
             </div>
             <div>
                 <label>Year</label>
-                <input type="text" value={year} onChange={YearChange}/>
+                <input type="text" placeholder="1999" value={year} onChange={YearChange}/>
             </div>
             <button type="button" onClick={handleForm}>Add a movie</button> 
         </from>      

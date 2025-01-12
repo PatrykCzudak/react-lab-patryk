@@ -4,14 +4,14 @@ import MovieForm from "./MovieForm";
 
 function App() {
 
-  const movies_init = [];
+  const moviesInit = [];
 
-  const [moviesList, setMoviesList] = useState(movies_init)
+  const [moviesList, setMoviesList] = useState(moviesInit)
   const [IsFormVisible, setIsFormVisible] = useState(false)
 
   function displayList(movie) {
     return (
-      movies_init === [] ? <h3>Insert your movies</h3> : <li key={movie.title}>{movie.title} ({movie.year}) </li>
+      moviesList.length === 0 ? <li>Insert your movies</li> : <li key={movie.title}>{movie.title} ({movie.year}) </li>
     )
   }
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
       <div>
-          <h1>My favourite movies to watch</h1>
+          <h1>My favourite movies to watch {moviesList.length}</h1>
           <h2>Titles</h2>
           <ul>{moviesList.map(displayList)}</ul>
           <button type="button" onClick={openAddFilm}>{IsFormVisible ? "Hide Form" : "Add a movie"}</button> 
