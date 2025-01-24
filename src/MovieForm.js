@@ -1,4 +1,5 @@
 import {useState} from "react";
+import "./index.css"
 
 export default function MovieForm(props) {
     const [title, setTitle] = useState("");
@@ -30,18 +31,20 @@ export default function MovieForm(props) {
     }
 
       return (
-        <from onSubmit={handleForm}>
-            <h2>Add Movie</h2>
-            <div>
-                <label>Title</label>
-                <input type="text" placeholder="Insert Movie Title" value={title} onChange={TitleChange}/>
-            </div>
-            <div>
-                <label>Year</label>
-                <input type="text" placeholder="1999" value={year} onChange={YearChange}/>
-            </div>
-            <button type="button" onClick={handleForm}>Add a movie</button> 
-        </from>      
+        <div className="form-container">
+            <h2 className="form-header">Add Movie</h2>
+            <from className="form-content" onSubmit={handleForm}>
+                <div className="form-group">
+                    <label htmlFor="title" className="form-label">Title</label>
+                    <input type="text" className="form-input" placeholder="Insert Movie Title" value={title} onChange={TitleChange}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="year" className="form-label">Year</label>
+                    <input type="text" className="form-input" placeholder="1999" value={year} onChange={YearChange}/>
+                </div>
+                <button type="button" className="submit-button" onClick={handleForm}>Add a movie</button> 
+            </from>    
+        </div>  
     );
 }
     

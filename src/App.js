@@ -1,6 +1,7 @@
 import {useState} from "react";
-import "milligram";
+//import "milligram";
 import MovieForm from "./MovieForm";
+import "./index.css"
 
 function App() {
 
@@ -20,11 +21,11 @@ function App() {
   }
 
   return (
-      <div>
-          <h1>My favourite movies to watch {moviesList.length}</h1>
+      <div className="app-container">
+          <h1>My favourite movies to watch</h1>
           <h2>Titles</h2>
           {moviesList.length === 0 ? <h4>Insert your movies</h4> : <ul>{moviesList.map(displayList)}</ul>}
-          <button type="button" onClick={openAddFilm}>{IsFormVisible ? "Hide Form" : "Add a movie"}</button> 
+          <button type="button" className="toggle-form" onClick={openAddFilm}>{IsFormVisible ? "Hide Form" : "Add a movie"}</button> 
           {IsFormVisible && <MovieForm onMovieSubmit={(movie) => setMoviesList([...moviesList, movie])} buttonLabel="Add a movie"/>}
       </div>
   );
